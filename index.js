@@ -44,14 +44,17 @@ function antisimetrica(matriz) {
 
 // Função para verificar se a relação é assimétrica
 function assimetrica(matriz) {
-    for(let i = 0; i < matriz.length; i++) {
-        for(let j = 0; j < matriz.length; j++) {
-            if (i !== j && matriz[i][j] === 1 && matriz[j][i] === 1) {
+    for (let i = 0; i < matriz.length; i++) {
+        if (matriz[i][i] !== 0) {
+            return false;
+        }
+        for (let j = i + 1; j < matriz.length; j++) {
+            if (matriz[i][j] === 1 && matriz[j][i] === 1) {
                 return false;
             }
         }
     }
-    return !simetrica(matriz);
+    return true;
 }
 
 
